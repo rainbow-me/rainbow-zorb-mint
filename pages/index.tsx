@@ -153,6 +153,7 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
       </Head>
       <Particles
         init={particlesInit}
+        // @ts-ignore
         options={backgroundParticlesConfig}
         style={{
           position: 'absolute',
