@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from 'framer-motion'
 import { SubgraphERC721Drop } from 'models/subgraph'
 import ReactMarkdown from 'react-markdown'
 import { useDropMetadataContract } from 'providers/DropMetadataProvider'
@@ -41,22 +42,62 @@ export function Collection({
       gap="x3"
       p={{ '@initial': 'x1', '@576': 'x10' }}
       w="100%"
-      style={{ maxWidth: 1360, margin: 'auto', minHeight: '80vh' }}
+      style={{ maxWidth: 1360, margin: 'auto', minHeight: '80vh', zIndex: 10 }}
     >
-      <Flex flex={{ '@initial': '1', '@1024': '1' }} p="x2" justify="center">
-        <img
-          className={heroImage}
-          src={ipfsImage(metadata?.imageURI || collection.editionMetadata?.imageURI)}
-          alt={collection.name}
-        />
-      </Flex>
+        <Flex flex={{ '@initial': '1', '@1024': '1' }} p="x2" justify="center">
+          <motion.div
+            animate={{
+              scale: 1,
+              y: 0,
+            }}
+            initial={{
+              scale: 0,
+              y: 200,
+            }}
+            transition={{
+              damping: 40,
+              delay: 0.4,
+              mass: 1,
+              stiffness: 300,
+              type: 'spring',
+            }}
+          >
+            <motion.div
+              animate={{
+                rotateY: 0,
+                transformPerspective: 1200,
+              }}
+              initial={{
+                rotateY: 180,
+                transformPerspective: 0,
+              }}
+              transition={{
+                damping: 8,
+                delay: 0.4,
+                mass: 1,
+                stiffness: 60,
+                type: 'spring',
+              }}
+            >
+              <img
+                className={heroImage}
+                src="appicon.png"
+                alt={collection.name}
+              />
+            </motion.div>
+          </motion.div>
+        </Flex>
       <Box flex={{ '@initial': '1', '@1024': 'none' }} className={maxWidth} p="x4">
         <Stack gap="x2" mb="x3">
           <Text variant="display-md" mb="x2">
-            {collection.name}
+            {/* {collection.name} */}
+            Rainbow ✕ Zora
           </Text>
           <Paragraph className={wrapWords} mb="x2">
-            <ReactMarkdown>{JSON.parse(`"${metadata?.description || collection?.editionMetadata?.description}"`)}</ReactMarkdown>
+            <ReactMarkdown>
+              {/* {JSON.parse(`"${metadata?.description || collection?.editionMetadata?.description}"`)} */}
+              A very special Rainbow app icon brought to you in collaboration with Zora. Mint the NFT with your Rainbow wallet to unlock the app icon.
+            </ReactMarkdown>
           </Paragraph>
         </Stack>
 

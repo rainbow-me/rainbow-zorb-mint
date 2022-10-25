@@ -118,6 +118,9 @@ export const heroImage = style({
     '(max-width: 940px)': {
       width: '100%'
     },
+    '(max-width: 500px)': {
+      marginTop: 36,
+    },
   },
 })
 

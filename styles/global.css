@@ -27,6 +27,7 @@ a:hover {
 
 .zord-text p {
   margin-bottom: 0.5em;
+  opacity: 0.9;
 }
 
 .zord-mint-details .zord-text-paragraph-sm {
