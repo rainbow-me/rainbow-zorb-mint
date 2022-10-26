@@ -140,7 +140,7 @@ export function MintButton({
         ) : availableMints < 1 ? (
           'Mint limit reached'
         ) : (
-          'Mint'
+          'Don’t mint yet'
         )}
       </Button>
       {saleIsActive && (
