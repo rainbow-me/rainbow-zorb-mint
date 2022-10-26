@@ -91,12 +91,12 @@ export function Collection({
         <Stack gap="x2" mb="x3">
           <Text variant="display-md" mb="x2">
             {/* {collection.name} */}
-            Rainbow ✕ Zora
+            Rainbow Zorbs
           </Text>
           <Paragraph className={wrapWords} mb="x2">
             <ReactMarkdown>
               {/* {JSON.parse(`"${metadata?.description || collection?.editionMetadata?.description}"`)} */}
-              A special edition Rainbow app icon brought to you by Rainbow and Zora. Mint the NFT to your Rainbow wallet to unlock the icon.
+              {'A special edition Rainbow Zorb icon that’s made for magical pondering.\n\nMint the NFT to your Rainbow wallet to unlock the app icon.'}
             </ReactMarkdown>
           </Paragraph>
         </Stack>
@@ -139,8 +139,8 @@ export function Collection({
                 {username && (
                   <Well borderColor="accent" py="x1" mt="x4">
                     <Flex justify="space-between" align="center">
-                      <Text fontSize={14}>Logged in as {username}</Text>
-                      <Button pill variant="ghost" onClick={disconnect} positive="relative" style={{ left: vars.space.x5 }}>
+                      <Text fontSize={14}><span className={loggedInText}>Logged in as </span>{username}</Text>
+                      <Button pill variant="ghost" onClick={disconnect} positive="relative" style={{ left: vars.space.x5, marginRight: 4, paddingBottom: 2 }}>
                         <Box as="span" fontSize={14}>
                           Disconnect
                         </Box>

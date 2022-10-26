@@ -21,73 +21,123 @@ interface HomePageProps {
 }
 
 const backgroundParticlesConfig = {
-  fullScreen: { enable: false },
-  fpsLimit: 60,
+  fullScreen: { enable: true },
+  fpsLimit: 120,
   interactivity: {
-      events: {
-          onClick: {
-              enable: false,
-          },
-          onHover: {
-              enable: true,
-              mode: "grab",
-              parallax: {
-                  enable: true,
-                  force: 40,
-                  smooth: 10
-              },
-
-          },
-          resize: true
+    events: {
+      onClick: {
+        enable: false,
+        mode: 'trail',
       },
-      modes: {
-          bubble: {
-              distance: 400,
-              duration: 2,
-              opacity: 0.4,
-              size: 8,
-          },
-          push: {
-              quantity: 4,
-          },
-          repulse: {
-              distance: 200,
-              duration: 0.4,
-          },
+      onHover: {
+        enable: true,
+        mode: "bubble",
+        parallax: {
+          enable: true,
+          force: 10,
+          smooth: 1
+        },
       },
+      resize: true
+    },
+    modes: {
+      bubble: {
+        distance: 50,
+        duration: 0.4,
+        size: 2
+      },
+      connect: {
+        distance: 50,
+        radius: 100,
+      },
+      grab: {
+        distance: 100
+      },
+      push: {
+        quantity: 4
+      },
+      remove: {
+        quantity: 4
+      },
+      repulse: {
+        distance: 50,
+        duration: 2
+      },
+      trail: {
+        delay: 0.1,
+        quantity: 10
+      }
+    },
   },
   particles: {
-      color: {
-          value: "#ffffff",
+    collisions: {
+      enable: false,
+    },
+    color: {
+      value: "#ffffff",
+    },
+    links: {
+      color: "transparent",
+    },
+    move: {
+      attract: {
+        distance: 100,
+        enable: false,
       },
-      links: {
-          color: "transparent",
+      direction: "none",
+      enable: true,
+      gravity: {
+        acceleration: 1,
+        enable: false,
+        maxSpeed: 1,
       },
-      move: {
-          direction: "none",
-          enable: true,
-          outMode: "bounce",
-          random: false,
-          speed: 0.5,
-          straight: false,
+      outModes: {
+        default: "out",
+        bottom: "out",
+        left: "out",
+        right: "out",
+        top: "out",
       },
-      number: {
-        density: {
-          enable: true,
-          area: 400,
-        },
-        value: 80,
+      random: true,
+      speed: 0.5,
+      spin: {
+        acceleration: 1,
+        enable: false,
       },
-      opacity: {
-          random: true,
+      straight: false,
+      trail: {
+        enable: false,
       },
-      shape: {
-          type: "circle",
+      vibrate: false,
+    },
+    number: {
+      density: {
+        enable: true,
+        area: 1000,
       },
-      size: {
-          random: true,
-          value: 1,
+      value: 500,
+    },
+    opacity: {
+      random: {
+        enable: true
       },
+      value: {
+        min: 0,
+        max: 1,
+      },
+    },
+    shape: {
+      type: "circle",
+    },
+    size: {
+      random: {
+        enable: true
+      },
+      value: {
+        min: 0.5,
+        max: 1
+      },
+    },
   },
   detectRetina: true,
 };
@@ -164,8 +214,20 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
           right: 0,
           padding: 0,
           margin: 0,
+          zIndex: -10,
         }}
-        
+      />
+      <div
+        style={{
+          boxShadow: 'rgb(0, 0, 0) 0px 0px 50px 20px inset',
+          position: 'fixed',
+          top: 0,
+          left: 0,
+          bottom: 0,
+          right: 0,
+          padding: 0,
+          margin: 0,
+        }}
       />
       {/*<Flex justify="flex-end" p="x4" className={header}>
         <ConnectWallet />

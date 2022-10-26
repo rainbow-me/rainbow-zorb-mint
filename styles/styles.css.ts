@@ -111,8 +111,6 @@ export const heroImage = style({
   objectFit: 'contain',
   maxHeight: '45vh',
   maxWidth: '100%',
-  borderRadius: '12px',
-  overflow: 'hidden',
   margin: 'auto',
   '@media': {
     '(max-width: 940px)': {
@@ -120,6 +118,14 @@ export const heroImage = style({
     },
     '(max-width: 500px)': {
       marginTop: 36,
+    },
+  },
+})
+
+export const loggedInText = style({
+  '@media': {
+    '(max-width: 1024px)': {
+      display: 'none',
     },
   },
 })
