@@ -96,7 +96,7 @@ export function Collection({
           <Paragraph className={wrapWords} mb="x2">
             <ReactMarkdown>
               {/* {JSON.parse(`"${metadata?.description || collection?.editionMetadata?.description}"`)} */}
-              A very special Rainbow app icon brought to you in collaboration with Zora. Mint the NFT with your Rainbow wallet to unlock the app icon.
+              A special Rainbow app icon brought to you by Rainbow and Zora. Mint the NFT to your Rainbow wallet to unlock the icon.
             </ReactMarkdown>
           </Paragraph>
         </Stack>
