@@ -94,7 +94,7 @@ const backgroundParticlesConfig = {
 
 const HomePage: NextPage<HomePageProps> = ({ collections }) => {
   const { metadata } = useDropMetadataContract()
-  const ogImage = ipfsImage(metadata?.image || collections[0]?.editionMetadata?.imageURI)
+  {/* const ogImage = ipfsImage(metadata?.image || collections[0]?.editionMetadata?.imageURI) */}
   const { address } = useAccount()
   const { data: ensName } = useEnsName({
     address: address,
@@ -121,7 +121,8 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
       <Head>
         {/* <title>{collections[0].name}</title> */}
         <title>Rainbow ✕ Zora</title>
-        <meta name="title" content={`${collections[0].name}`} />
+        <meta name="title" content="Rainbow ✕ Zora" />
+        {/* <meta name="title" content={`${collections[0].name}`} />
         <meta
           name="description"
           content={
@@ -141,15 +142,15 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
             "ZORA's creator toolkit makes it easy to create an NFT collection, with tooling that scales with your creative ambitions"
           }
         />
-        <meta name="og:image" content={ogImage} />
+        <meta name="og:image" content={ogImage} /> */}
         <meta name="theme-color" content="#000000" />
-        <meta name="twitter:card" content="summary_large_image" />
+        {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${collections[0].name}`} />
         <meta
           name="twitter:url"
           content={`https://create.zora.co/editions/${collections[0].address}`}
         />
-        <meta name="twitter:image" content={ogImage} />
+        <meta name="twitter:image" content={ogImage} /> */}
       </Head>
       <Particles
         init={particlesInit}
