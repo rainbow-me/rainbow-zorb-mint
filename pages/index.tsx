@@ -27,7 +27,6 @@ const backgroundParticlesConfig = {
     events: {
       onClick: {
         enable: false,
-        mode: 'trail',
       },
       onHover: {
         enable: true,
@@ -35,10 +34,9 @@ const backgroundParticlesConfig = {
         parallax: {
           enable: true,
           force: 10,
-          smooth: 1
+          smooth: 10
         },
       },
-      resize: true
     },
     modes: {
       bubble: {
@@ -76,9 +74,6 @@ const backgroundParticlesConfig = {
     color: {
       value: "#ffffff",
     },
-    links: {
-      color: "transparent",
-    },
     move: {
       attract: {
         distance: 100,
@@ -109,18 +104,16 @@ const backgroundParticlesConfig = {
         enable: false,
       },
       vibrate: false,
+      warp: false,
     },
     number: {
       density: {
         enable: true,
-        area: 1000,
+        area: 800,
       },
-      value: 500,
+      value: 400,
     },
     opacity: {
-      random: {
-        enable: true
-      },
       value: {
         min: 0,
         max: 1,
@@ -130,9 +123,6 @@ const backgroundParticlesConfig = {
       type: "circle",
     },
     size: {
-      random: {
-        enable: true
-      },
       value: {
         min: 0.5,
         max: 1
@@ -160,9 +150,6 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
   }
 
   const particlesInit = async (main) => {
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
-    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
-    // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(main);
   };
 
@@ -193,7 +180,8 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
           }
         />
         <meta name="og:image" content={ogImage} /> */}
-        <meta name="theme-color" content="#000000" />
+        <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)" />
+        <meta name="color-scheme" content="dark" />
         {/* <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content={`${collections[0].name}`} />
         <meta
@@ -210,7 +198,6 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
           position: 'absolute',
           top: 0,
           left: 0,
-          bottom: 0,
           right: 0,
           padding: 0,
           margin: 0,

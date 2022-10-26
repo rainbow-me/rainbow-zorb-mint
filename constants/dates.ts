@@ -1,10 +1,9 @@
 export const dateOptions: [string, Intl.DateTimeFormatOptions] = [
-  'en-au',
+  'en-us',
   {
     hour: 'numeric',
     minute: 'numeric',
     month: 'short',
     day: '2-digit',
-    year: 'numeric',
   },
 ]

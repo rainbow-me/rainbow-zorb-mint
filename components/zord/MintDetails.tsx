@@ -153,7 +153,7 @@ export function MintDetails({
                   justify="space-between"
                 >
                   <Text variant="paragraph-sm" color="tertiary">
-                    Public sale start
+                    Public sale
                   </Text>
                   <Text variant="paragraph-sm" align="right">
                     {startDate.toLocaleString(
