@@ -65,10 +65,10 @@ export function MintDetails({
       >
         <Stack className="zord-mint-details" gap="x3">
           <Flex className="zord-mint-details__item" gap="x3" justify="space-between">
-            <Text variant="paragraph-sm" color="tertiary">
+            <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
               Number minted
             </Text>
-            <Text variant="paragraph-sm">
+            <Text style={{ fontWeight: 600 }} variant="paragraph-sm">
               {formattedMintedCount}
               {parseInt(collection.maxSupply) > OPEN_EDITION_SIZE ? (
                 ' NFTs'
@@ -81,10 +81,10 @@ export function MintDetails({
           </Flex>
           {maxPerWallet < OPEN_EDITION_SIZE && (
             <Flex className="zord-mint-details__item" gap="x2" justify="space-between">
-              <Text variant="paragraph-sm" color="tertiary">
+              <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                 Max per address
               </Text>
-              <Text variant="paragraph-sm">
+              <Text style={{ fontWeight: 600 }} variant="paragraph-sm">
                 {/*userMintedCount && maxPerWallet < OPEN_EDITION_SIZE && (
                 <Box display="inline" color="tertiary">
                   {userMintedCount}/
@@ -105,10 +105,10 @@ export function MintDetails({
                     gap="x2"
                     justify="space-between"
                   >
-                    <Text variant="paragraph-sm" color="tertiary">
+                    <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                       Mint price
                     </Text>
-                    <Text variant="paragraph-sm">
+                    <Text style={{ fontWeight: 600 }} variant="paragraph-sm">
                       {collection.salesConfig.publicSalePrice === '0'
                         ? 'Free'
                         : `${formatCryptoVal(
@@ -124,10 +124,10 @@ export function MintDetails({
                       gap="x2"
                       justify="space-between"
                     >
-                      <Text variant="paragraph-sm" color="tertiary">
+                      <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                         Presale start
                       </Text>
-                      <Text variant="paragraph-sm" align="right">
+                      <Text style={{ fontWeight: 600 }} variant="paragraph-sm" align="right">
                         {presaleStartDate.toLocaleString(...dateOptions)}
                       </Text>
                     </Flex>
@@ -137,10 +137,10 @@ export function MintDetails({
                         gap="x2"
                         justify="space-between"
                       >
-                        <Text variant="paragraph-sm" color="tertiary">
+                        <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                           Presale end
                         </Text>
-                        <Text variant="paragraph-sm" align="right">
+                        <Text style={{ fontWeight: 600 }} variant="paragraph-sm" align="right">
                           {presaleEndDate.toLocaleString(...dateOptions)}
                         </Text>
                       </Flex>
@@ -152,10 +152,10 @@ export function MintDetails({
                   gap="x2"
                   justify="space-between"
                 >
-                  <Text variant="paragraph-sm" color="tertiary">
+                  <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                     Public sale
                   </Text>
-                  <Text variant="paragraph-sm" align="right">
+                  <Text style={{ fontWeight: 600 }} variant="paragraph-sm" align="right">
                     {startDate.toLocaleString(
                       ...(dateOptions as [string, Intl.DateTimeFormatOptions])
                     )}
@@ -167,10 +167,10 @@ export function MintDetails({
                     gap="x2"
                     justify="space-between"
                   >
-                    <Text variant="paragraph-sm" color="tertiary">
+                    <Text style={{ fontWeight: 500 }} variant="paragraph-sm" color="tertiary">
                       Public sale end
                     </Text>
-                    <Text variant="paragraph-sm" align="right">
+                    <Text style={{ fontWeight: 600 }} variant="paragraph-sm" align="right">
                       {endDate.toLocaleString(...dateOptions)}
                     </Text>
                   </Flex>
