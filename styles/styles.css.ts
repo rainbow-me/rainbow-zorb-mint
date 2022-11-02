@@ -114,6 +114,9 @@ export const heroImage = style({
   maxWidth: '100%',
   margin: 'auto',
   '-webkit-touch-callout': 'none',
+})
+
+export const mobileHeader = style({
   '@media': {
     '(max-width: 575px)': {
       marginTop: 36,

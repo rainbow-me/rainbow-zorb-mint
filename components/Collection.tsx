@@ -6,7 +6,7 @@ import { useState } from 'react'
 import { useSaleStatus } from 'hooks/useSaleStatus'
 import { useDisconnect } from 'wagmi'
 import { ipfsImage } from '@lib/helpers'
-import { loggedInText, maxWidth, heroImage, wrapWords } from 'styles/styles.css'
+import { loggedInText, maxWidth, heroImage, mobileHeader, wrapWords } from 'styles/styles.css'
 import { MintComponent } from '@components/zord/MintComponent'
 import { MintDetails } from '@components/zord/MintDetails'
 import { PresaleComponent } from '@components/zord/PresaleComponent'
@@ -163,6 +163,7 @@ export function Collection({
               transition={{ ease: [0.25, 1, 0.5, 1], duration: 0.5 }}
             >
               <div
+                className={mobileHeader}
                 style={{
                   height: 1024,
                   width: 1024,
