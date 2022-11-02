@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion'
 import request from 'graphql-request'
 import Head from 'next/head'
 import { useMemo } from 'react'
@@ -190,20 +191,26 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
         />
         <meta name="twitter:image" content={ogImage} /> */}
       </Head>
-      <Particles
-        init={particlesInit}
-        // @ts-ignore
-        options={backgroundParticlesConfig}
-        style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          padding: 0,
-          margin: 0,
-          zIndex: -10,
-        }}
-      />
+      <motion.div
+        animate={{ opacity: 1 }}
+        initial={{ opacity: 0 }}
+        transition={{ ease: 'easeInOut', delay: 0.1,  duration: 0.3 }}
+      >
+        <Particles
+          init={particlesInit}
+          // @ts-ignore
+          options={backgroundParticlesConfig}
+          style={{
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            padding: 0,
+            margin: 0,
+            zIndex: -10,
+          }}
+        />
+      </motion.div>
       <div
         style={{
           boxShadow: 'rgb(0, 0, 0) 0px 0px 50px 20px inset',

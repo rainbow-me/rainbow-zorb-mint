@@ -108,15 +108,14 @@ export const header = style({
 })
 
 export const heroImage = style({
+  aspectRatio: '1 / 1',
   objectFit: 'contain',
   maxHeight: '45vh',
   maxWidth: '100%',
   margin: 'auto',
+  '-webkit-touch-callout': 'none',
   '@media': {
-    '(max-width: 940px)': {
-      width: '100%'
-    },
-    '(max-width: 500px)': {
+    '(max-width: 575px)': {
       marginTop: 36,
     },
   },

@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from 'framer-motion'
+import { animate, motion, useMotionValue, useTransform } from 'framer-motion'
 import { SubgraphERC721Drop } from 'models/subgraph'
 import ReactMarkdown from 'react-markdown'
 import { useDropMetadataContract } from 'providers/DropMetadataProvider'
@@ -34,6 +34,79 @@ export function Collection({
   const { presaleExists, saleNotStarted, saleIsFinished } = useSaleStatus({ collection })
   const [showPresale, setShowPresale] = useState(saleNotStarted && !saleIsFinished)
 
+  const willChange = { willChange: 'transform' }
+
+  const [angle, setAngle] = useState(12.5)
+
+  const y = useMotionValue(0.5)
+  const x = useMotionValue(0.5)
+  const hoverProgress = useMotionValue(1)
+
+  const rotateY = useTransform(x, [0, 1], [angle, -angle], {
+    clamp: true,
+  })
+  const rotateX = useTransform(y, [0, 1], [-angle, angle], {
+    clamp: true,
+  })
+  const moveY = useTransform(y, [0, 1], [angle / 2, -angle / 2], {
+    clamp: true,
+  })
+  const moveX = useTransform(x, [0, 1], [angle / 2, -angle / 2], {
+    clamp: true,
+  })
+
+  function onMove(e) {
+    const bounds = e.currentTarget.getBoundingClientRect()
+    const xValue = (e.clientX - bounds.x) / e.currentTarget.clientWidth
+    const yValue = (e.clientY - bounds.y) / e.currentTarget.clientHeight
+    
+    x.stop()
+    y.stop()
+
+    const duration = 0.5 * hoverProgress.get()
+
+    animate(x, xValue, {
+      ease: [0.25, 1, 0.5, 1],
+      duration
+    })
+    animate(y, yValue, {
+      ease: [0.25, 1, 0.5, 1],
+      duration
+    })
+  }
+
+  function onEnter() {
+    x.stop()
+    y.stop()
+    hoverProgress.set(1, true)
+
+    animate(x, 0.5, {
+      ease: [0.25, 1, 0.5, 1],
+      duration: 0.5
+    })
+    animate(y, 0.5, {
+      ease: [0.25, 1, 0.5, 1],
+      duration: 0.5
+    })
+    animate(hoverProgress, 0, {
+      ease: [0.25, 1, 0.5, 1],
+      duration: 0.5
+    })
+  }
+
+  function onLeave() {
+    hoverProgress.stop()
+    animate(x, 0.5, {
+      ease: [0.25, 1, 0.5, 1],
+      duration: 0.5
+    })
+    animate(y, 0.5, {
+      ease: [0.25, 1, 0.5, 1],
+      duration: 0.5
+    })
+    hoverProgress.set(1, true)
+  }
+
   return (
     <Flex
       mt="x3"
@@ -41,52 +114,98 @@ export function Collection({
       direction={{ '@initial': 'column', '@768': 'row-reverse' }}
       gap="x3"
       p={{ '@initial': 'x1', '@576': 'x10' }}
+      style={{ height: '100vh', maxWidth: 1360, margin: 'auto', minHeight: '80vh', zIndex: 10 }}
       w="100%"
-      style={{ maxWidth: 1360, margin: 'auto', minHeight: '80vh', zIndex: 10 }}
     >
-        <Flex flex={{ '@initial': '1', '@1024': '1' }} p="x2" justify="center">
+      <Flex flex={{ '@initial': '1', '@1024': '1' }} p="x2" justify="center">
+        <motion.div
+          animate={{
+            scale: 1,
+            y: 0,
+          }}
+          initial={{
+            scale: 0,
+            y: 200,
+          }}
+          style={willChange}
+          transition={{
+            damping: 40,
+            delay: 0.4,
+            mass: 1,
+            stiffness: 300,
+            type: 'spring',
+          }}
+        >
           <motion.div
             animate={{
-              scale: 1,
-              y: 0,
+              rotateY: 0,
+              transformPerspective: 1200,
             }}
             initial={{
-              scale: 0,
-              y: 200,
+              rotateY: 180,
+              transformPerspective: 0,
             }}
+            style={willChange}
             transition={{
-              damping: 40,
+              damping: 8,
               delay: 0.4,
               mass: 1,
-              stiffness: 300,
+              stiffness: 60,
               type: 'spring',
             }}
           >
             <motion.div
-              animate={{
-                rotateY: 0,
-                transformPerspective: 1200,
-              }}
-              initial={{
-                rotateY: 180,
-                transformPerspective: 0,
-              }}
-              transition={{
-                damping: 8,
-                delay: 0.4,
-                mass: 1,
-                stiffness: 60,
-                type: 'spring',
-              }}
+              onMouseMove={onMove}
+              whileHover={{ scale: 1.0666 }}
+              onHoverStart={onEnter}
+              onHoverEnd={onLeave}
+              style={ willChange, { rotateX, rotateY, transformPerspective: 800 }}
+              transition={{ ease: [0.25, 1, 0.5, 1], duration: 0.5 }}
             >
-              <img
-                className={heroImage}
-                src="appicon.png"
-                alt={collection.name}
-              />
+              <div
+                style={{
+                  height: 1024,
+                  width: 1024,
+                  objectFit: 'contain',
+                  position: 'relative',
+                  maxHeight: '45vh',
+                  maxWidth: '45vh',
+                  willChange: 'transform',
+                }}
+              >
+                <img
+                  className={heroImage}
+                  src="appIconBackground.png"
+                  alt={collection.name}
+                />
+                <motion.div
+                  style={{
+                    position: 'absolute',
+                    left: '12.5%',
+                    right: '12.5%',
+                    top: '12.5%',
+                    bottom: '12.5%',
+                    willChange: 'transform',
+                    x: moveX,
+                    y: moveY,
+                  }}
+                >
+                  <img
+                    src="zorb.png"
+                    alt={collection.name}
+                    style={{
+                      aspectRatio: '1 / 1',
+                      height: '100%',
+                      width: '100%',
+                      '-webkit-touch-callout': 'none',
+                    }}
+                  />
+                </motion.div>
+              </div>
             </motion.div>
           </motion.div>
-        </Flex>
+        </motion.div>
+      </Flex>
       <Box flex={{ '@initial': '1', '@1024': 'none' }} className={maxWidth} p="x4">
         <Stack gap="x2" mb="x3">
           <Text variant="display-md" mb="x2">
