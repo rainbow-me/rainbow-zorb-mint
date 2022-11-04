@@ -211,12 +211,12 @@ export function Collection({
         <Stack gap="x2" mb="x3">
           <Text variant="display-md" mb="x2">
             {/* {collection.name} */}
-            Rainbow x The Doge NFT
+            Very Wow Rainbow ✗ The Doge NFT
           </Text>
           <Paragraph className={wrapWords} mb="x2">
             <ReactMarkdown>
               {/* {JSON.parse(`"${metadata?.description || collection?.editionMetadata?.description}"`)} */}
-              {'A special edition Rainbow Zorb icon that’s made for magical pondering.\n\nMint the NFT to your Rainbow wallet to unlock the app icon.'}
+              {'A special edition Rainbow App Icon in celebration of Kabosu\'s 17th birthday.\n\nMint the NFT to your Rainbow wallet to unlock the app icon.'}
             </ReactMarkdown>
           </Paragraph>
         </Stack>
