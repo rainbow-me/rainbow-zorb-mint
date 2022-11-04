@@ -1,6 +1,6 @@
 export const fonts = {
-  heading: `SFRounded, ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
-  body: `SFRounded, ui-rounded, 'SF Pro Rounded', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
+  heading: `"Comic Sans MS", "Comic Sans", cursive`,
+  body: `"Comic Sans MS", "Comic Sans", cursive,'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
   mono: `'Roboto Mono', monospace`,
 }
 

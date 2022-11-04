@@ -182,10 +182,10 @@ export function Collection({
                 <motion.div
                   style={{
                     position: 'absolute',
-                    left: '12.5%',
-                    right: '12.5%',
-                    top: '12.5%',
-                    bottom: '12.5%',
+                    left: '0',
+                    right: '0',
+                    top: '0',
+                    bottom: '0',
                     willChange: 'transform',
                     x: moveX,
                     y: moveY,
@@ -211,7 +211,7 @@ export function Collection({
         <Stack gap="x2" mb="x3">
           <Text variant="display-md" mb="x2">
             {/* {collection.name} */}
-            Rainbow Zorbs
+            Rainbow x The Doge NFT
           </Text>
           <Paragraph className={wrapWords} mb="x2">
             <ReactMarkdown>

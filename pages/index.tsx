@@ -213,7 +213,8 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
       </motion.div>
       <div
         style={{
-          boxShadow: 'rgb(0, 0, 0) 0px 0px 50px 20px inset',
+
+          boxShadow: 'rgba(190, 183, 147, 0.25) 0px 0px 50px 20px inset',
           position: 'fixed',
           top: 0,
           left: 0,
@@ -223,6 +224,25 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
           margin: 0,
         }}
       />
+          {/*<img
+             src="doge.png"
+             cover
+                    style={{
+                      aspectRatio: '1 / 1',
+                      height: '100%',
+                      width: '100%',
+
+          position: 'fixed',
+
+          // top: 0,
+          // left: 0,
+          // bottom: 0,
+          // right: 0,
+          padding: 0,
+          margin: 0,
+                      '-webkit-touch-callout': 'none',
+                    }}
+                  />*/}
       {/*<Flex justify="flex-end" p="x4" className={header}>
         <ConnectWallet />
       </Flex>*/}
