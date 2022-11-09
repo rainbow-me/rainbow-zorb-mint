@@ -158,8 +158,8 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
     <>
       <Head>
         {/* <title>{collections[0].name}</title> */}
-        <title>Rainbow ✕ Zora</title>
-        <meta name="title" content="Rainbow ✕ Zora" />
+        <title>Bronze The Doge x Rainbow</title>
+        <meta name="title" content="Bronze The Doge x Rainbow" />
         {/* <meta name="title" content={`${collections[0].name}`} />
         <meta
           name="description"
@@ -213,7 +213,6 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
       </motion.div>
       <div
         style={{
-
           boxShadow: 'rgba(190, 183, 147, 0.25) 0px 0px 50px 20px inset',
           position: 'fixed',
           top: 0,
@@ -224,28 +223,6 @@ const HomePage: NextPage<HomePageProps> = ({ collections }) => {
           margin: 0,
         }}
       />
-          {/*<img
-             src="doge.png"
-             cover
-                    style={{
-                      aspectRatio: '1 / 1',
-                      height: '100%',
-                      width: '100%',
-
-          position: 'fixed',
-
-          // top: 0,
-          // left: 0,
-          // bottom: 0,
-          // right: 0,
-          padding: 0,
-          margin: 0,
-                      '-webkit-touch-callout': 'none',
-                    }}
-                  />*/}
-      {/*<Flex justify="flex-end" p="x4" className={header}>
-        <ConnectWallet />
-      </Flex>*/}
       <Stack align="center" minH="100vh" style={{ zIndex: 10 }}>
         {collections.map((collection) => (
           <ERC721DropContractProvider
