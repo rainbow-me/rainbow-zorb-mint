@@ -1,6 +1,6 @@
 export const fonts = {
-  heading: 'system-ui, sans-serif',
-  body: 'system-ui, sans-serif',
+  heading: `"Comic Sans MS", "Comic Sans", cursive`,
+  body: `"Comic Sans MS", "Comic Sans", cursive,'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'`,
   mono: `'Roboto Mono', monospace`,
 }
 
@@ -42,8 +42,8 @@ export const lineHeight = {
 
 export const fontWeight = {
   paragraph: '400',
-  heading: '500',
-  label: '500',
-  display: '500',
+  heading: '700',
+  label: '700',
+  display: '700',
 }
 

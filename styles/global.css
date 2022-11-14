@@ -4,10 +4,13 @@ html {
 
 html,
 body {
+  background: #FFF8E4;
   padding: 0;
   margin: 0;
   letter-spacing: 0.025em;
   line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 a {

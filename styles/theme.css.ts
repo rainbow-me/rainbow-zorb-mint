@@ -4,10 +4,10 @@ import { createTheme, style } from '@vanilla-extract/css'
 
 // Valid colour values are short and long hex codes (#00ff00) (#f00)
 const { colors, shadows } = colorTheme({
-  foreground: '#000',
-  background: '#fff',
-  accent: '#000',
-  positive: '#92ea22',
+  foreground: '#000000',
+  background: '#FFF8E4',
+  accent: '#FFD335',
+  positive: '#000000',
 })
 
 export const customTheme = createTheme(theme, {
@@ -25,12 +25,13 @@ export const customTheme = createTheme(theme, {
     ...colors,
     secondary: colors.primary,
     tertiary: colors.primary,
+    onAccent: '#25292e',
     onNegative: '#ffffff',
   },
   radii: {
     ...radii,
-    small: '12px',
-    normal: '12px',
+    small: '18px',
+    normal: '30px',
   },
   shadows,
   size,

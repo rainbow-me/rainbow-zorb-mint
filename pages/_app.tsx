@@ -3,7 +3,7 @@ import '@zoralabs/zord/index.css'
 import 'styles/theme.css'
 import 'styles/global.css'
 
-import { getDefaultWallets, RainbowKitProvider, lightTheme } from '@rainbow-me/rainbowkit'
+import { getDefaultWallets, RainbowKitProvider, midnightTheme } from '@rainbow-me/rainbowkit'
 import { defaultChains, configureChains, createClient, WagmiConfig } from 'wagmi'
 import { alchemyProvider } from 'wagmi/providers/alchemy'
 
@@ -33,9 +33,8 @@ function App({ Component, pageProps }) {
       <RainbowKitProvider
         chains={chains}
         modalSize="compact"
-        theme={lightTheme({
-          accentColor: 'black',
-          borderRadius: 'small',
+        theme={midnightTheme({
+          borderRadius: 'large',
         })}
       >
         <Component {...pageProps} />

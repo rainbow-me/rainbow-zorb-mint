@@ -125,15 +125,26 @@ export const header = style({
 })
 
 export const heroImage = style({
+  aspectRatio: '1 / 1',
   objectFit: 'contain',
   maxHeight: '45vh',
   maxWidth: '100%',
-  borderRadius: '12px',
-  overflow: 'hidden',
   margin: 'auto',
+  '-webkit-touch-callout': 'none',
+})
+
+export const mobileHeader = style({
   '@media': {
-    '(max-width: 940px)': {
-      width: '100%'
+    '(max-width: 575px)': {
+      marginTop: 36,
+    },
+  },
+})
+
+export const loggedInText = style({
+  '@media': {
+    '(max-width: 1024px)': {
+      display: 'none',
     },
   },
 })
